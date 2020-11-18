@@ -8,11 +8,14 @@ for (var i = 0; i < nr_of_buttons; i++) {
         var my_button = this.innerHTML;
         console.log(my_button);
         play_my_sound(my_button);
+        makeAnimationa(my_button);
     })
 }
 
 document.addEventListener("keypress", function (event) {
     play_my_sound(event.key);
+    makeAnimationa(event.key);
+
 });
 
 
@@ -54,6 +57,13 @@ function play_my_sound(key) {
 }
 
 
+function makeAnimationa(key_presed) {
+    var curret_button = document.querySelector("." + key_presed);
+    curret_button.classList.add("pressed");
+    setTimeout(function () {
+        curret_button.classList.remove("pressed")
+    }, 500);
+}
 
 
 
